@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp Page</title>
+  <link rel="stylesheet" href="../../public/style/signup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Montserrat&family=Poppins&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Montserrat&family=Open+Sans&family=Poppins&display=swap"
+    rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    #Neumorphism-Login {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: grid;
+      place-items: center;
+      background-image: url(login-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    :root {
+      --font-base: 'Cormorant Upright', serif;
+      --font-alt: 'Open Sans', sans-serif;
+
+      --color-golden: #dcca87;
+      --color-black: #000000;
+      --color-gray: #545454;
+      --color-crimson: #f5efd8;
+      --color-grey: #aaaaaa;
+      --color-white: #ffffff;
+    }
+
+    .contentN {
+      width: 400px;
+      padding: 40px 30px;
+      background: var(--color-gray);
+      border-radius: 10px;
+      box-shadow: -3px -3px 7px var(--color-crimson), 2px 2px 5px var(--color-crimson);
+    }
+
+    .contentN .text {
+      font-size: 33px;
+      font-weight: 600;
+      margin-bottom: 35px;
+      color: var(--color-golden);
+      font-family: var(--font-base);
+    }
+
+    .fieldN {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      position: relative;
+    }
+
+    .fieldN:nth-child(2) {
+      margin-top: 20px;
+    }
+
+    .fieldN:nth-child(3) {
+      margin-top: 20px;
+    }
+
+    .fieldN input {
+      height: 100%;
+      width: 100%;
+      padding-left: 45px;
+      outline: none;
+      border: none;
+      font-size: 18px;
+      background: var(--color-grey);
+      color: var(--color-white);
+      border-radius: 25px;
+      box-shadow: inset 2px 2px 5px var(--color-crimson), inset -5px -5px 10px var(--color-crimson);
+      font-style: var(--font-alt);
+    }
+
+    .fieldN input:focus {
+      box-shadow: inset 1px 1px 2px var(--color-crimson), inset -1px -1px 2px var(--color-crimson);
+    }
+
+    .fieldN span {
+      position: absolute;
+      color: var(--color-white);
+      width: 50px;
+      line-height: 50px;
+    }
+
+    .fieldN label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 45px;
+      pointer-events: none;
+      color: var(--color-gray);
+      font-size: 1.2rem;
+    }
+
+    .fieldN input:valid~label {
+      opacity: 0;
+    }
+
+    .button {
+      margin: 2rem 0;
+      width: 100%;
+      height: 50px;
+      font-size: 1.5rem;
+      line-height: 50px;
+      font-weight: 600;
+      background: var(--color-crimson);
+      border-radius: 25px;
+      font-family: var(--font-base);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: var(--color-black);
+      transition: all .50s ease;
+    }
+
+    .button:hover {
+      background: var(--color-golden);
+      color: var(--color-white);
+    }
+
+    .sign-up {
+      margin: 10px 0;
+      color: var(--color-grey);
+      font-size: 1.2rem;
+    }
+
+    .sign-up a {
+      color: var(--color-golden);
+    }
+
+    .sign-up a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:710px) {
+      #Neumorphism-Login {
+        background-image: url(login-bg2.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+      }
+
+      .contentN {
+        width: auto;
+        padding: 50px 40px;
+      }
+    }
+    .h-icon{
+         padding: 1rem 2rem 1rem;
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: flex-end;
+        background-color: var(--color-black);
+    }
+  </style>
+</head>
+
+<body>
+  {{!-- {{>navbar}} --}}
+  <div class="h-icon">
+    <a href="/" target="_blank"><i class="fa-solid fa-house" style="color: var(--color-golden);"></i></a>
+  </div>
+  <section id='Neumorphism-Login'>
+    <div class="contentN">
+      <div class="text">
+        Wanna have a bite?
+      </div>
+      <form action="/register" method="POST">
+        <div class="fieldN">
+          <input type="text" name="name" required>
+          <span class="fas fa-user"></span>
+          <label>Name</label>
+        </div>
+        <div class="fieldN">
+          <input type="text"email name="email" required>
+          <span class="fas fa-user"></span>
+          <label>Email</label>
+        </div>
+        <div class="fieldN">
+          <input type="password" name="password" required>
+          <span class="fas fa-lock"></span>
+          <label>Password</label>
+        </div>
+        <br>
+        <div class="fieldN">
+          <input type="password" name="confirmpassword" required>
+          <span class="fas fa-lock"></span>
+          <label>Confirm Password</label>
+        </div>
+        <button class="button">Sign up</button>
+        <div class="sign-up">
+          All Ready A Member!
+          <a href="/Login">Log In Now</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+
+<script>
+    
+  const login = document.getElementById('ns');
+  const logout = document.getElementById('nl');
+  /*const in = document.getElementsByClassName('in');
+  in.style.display = "none";*/
+  const links = document.getElementsByClassName('navbar-links');
+
+  links.style.display = "none"
+
+  const authtoken = document.cookie;
+
+  if (authtoken) {
+    login.style.display = "none"
+    registeration.style.display = "none";
+    logout.style.display = "block"
+  } else {
+    login.style.display = "block"
+    registeration.style.display = "block";
+    logout.style.display = "none"
+  } 
+
+
+  
+</script>
+
+</html>

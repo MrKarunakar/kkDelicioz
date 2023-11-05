@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bookings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Montserrat&family=Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Montserrat&family=Open+Sans&family=Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<style>
+    :root {
+      --font-base: 'Cormorant Upright', serif;
+      --font-alt: 'Open Sans', sans-serif;
+
+      --color-golden: #dcca87;
+      --color-black: #000000;
+      --color-gray: #545454;
+      --color-crimson: #f5efd8;
+      --color-grey: #aaaaaa;
+      --color-white: #ffffff;
+    }
+    body{
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("res-card.jpg") center/cover no-repeat;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-grey);
+        padding-bottom: 20px;
+    }
+    .all{
+       width: 400px;
+       padding: 20px 10px;
+       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),transparent;
+       border-radius: 10px;
+       box-shadow: -3px -3px 7px var(--color-crimson), 2px 2px 5px var(--color-crimson);
+       font-weight: 600;
+       color: var(--color-golden);
+       font-family: var(--font-base);
+    }
+    .all{
+        margin-top: 5rem;
+    }
+    .h-icon{
+         padding: 1rem 2rem 1rem;
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: flex-end;
+        background-color: var(--color-black);
+    }
+</style>
+
+<body>
+    <div class="h-icon">
+    <a href="/" target="_blank"><i class="fa-solid fa-house" style="color: var(--color-golden);"></i></a>
+  </div>
+    <div class="all">
+        <ul class="details" style="text-align: center;">
+        {{#each jsonData}}
+        {{#if this._id }}
+        <p style="font-size: 20px;"><span style="font-weight: 700;">Booking ID:</span> {{this._id}}
+        <p style="font-size: 20px;"> <span style="font-weight: 700;">Date:</span> {{this.date}} </p>
+        <p style="font-size: 20px;"><span style="font-weight: 700;">Name:</span> {{this.name}} </p>
+        <p style="font-size: 20px;"><span style="font-weight: 700;">Time Slot:</span> {{this.slot}}</p>
+        <p style="font-size: 20px;"><span style="font-weight: 700;">No of Seats:</span> {{this.seats}}</p>
+        </p>
+        <br>
+        {{/if}}
+        {{/each}}
+    </ul>
+
+    <h2 style="text-align: center; margin-top: 100px">Thank You! Do visit us again!!!</h2>
+    </div>
+
+</body>
+
+<script>
+    const login = document.getElementById('login');
+    const logout = document.getElementById('logout');
+    const registeration = document.getElementById('registeration');
+
+    const authtoken = document.cookie;
+
+    if (authtoken) {
+        login.style.display = "none"
+        registeration.tyle.display = "none";
+        logout.style.display = "block"
+    } else {
+        login.style.display = "block"
+        registeration.style.display = "block";
+        logout.style.display = "none"
+    } 
+
+    
+</script>
+
+
+</html>

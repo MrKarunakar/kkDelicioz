@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation</title>
+    <link rel="stylesheet" href="../../public/style/book.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Montserrat&family=Poppins&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Montserrat&family=Open+Sans&family=Poppins&display=swap"
+        rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        :root {
+            --font-base: 'Cormorant Upright', serif;
+            --font-alt: 'Open Sans', sans-serif;
+
+            --color-golden: #dcca87;
+            --color-black: #000000;
+            --color-gray: #545454;
+            --color-crimson: #f5efd8;
+            --color-grey: #aaaaaa;
+            --color-white: #ffffff;
+        }
+
+        .banner {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("res-bg.png") center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-grey);
+            padding-bottom: 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: 420px 420px;
+            border-radius: 25px;
+            box-shadow: inset 2px 2px 5px var(--color-crimson), inset -5px -5px 10px var(--color-crimson);
+        }
+
+        .card-img {
+            background: url("res-card.jpg") center/cover no-repeat;
+            box-shadow: inset 2px 2px 5px var(--color-crimson), inset -5px -5px 10px var(--color-crimson);
+
+        }
+
+        .banner h2 {
+            font-family: var(--font-base);
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--color-golden);
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+        }
+
+        .card-content {
+            background: var(--color-grey);
+            height: 330px;
+            box-shadow: inset 2px 2px 5px var(--color-crimson), inset -5px -5px 10px var(--color-crimson);
+
+        }
+
+        .card-content h3 {
+            font-family: var(--font-base);
+            text-align: center;
+            color: var(--color-gray);
+            padding: 25px 0 10px 0;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .form-row {
+            display: flex;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        form select,
+        form input {
+            display: block;
+            width: 100%;
+            margin: 15px 12px;
+            padding: 10px;
+            padding-left: 27px;
+            font-size: 18px;
+            outline: none;
+            border: none;
+            font-weight: 700;
+            background: var(--color-grey);
+            color: var(--color-gray);
+            border-radius: 25px;
+            box-shadow: inset 2px 2px 5px var(--color-crimson), inset -5px -5px 10px var(--color-crimson);
+            font-family: var(--font-base);
+        }
+
+        form input[type=text],
+        form input[type=number],
+        form input::placeholder,
+        select {
+            color: var(--color-gray);
+
+        }
+
+        form input[type=submit] {
+            background: var(--color-crimson);
+            color: var(--color-black);
+            padding: 12px 0;
+            cursor: pointer;
+            border-radius: .2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all .50s ease;
+            font-family: var(--font-base);
+        }
+
+        form input[type=submit]:hover {
+            opacity: 0.9;
+            background: var(--color-golden);
+            color: var(--color-white);
+        }
+        .h-icon{
+         padding: 1rem 2rem 1rem;
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: flex-end;
+        background-color: var(--color-black);
+        }
+
+        @media(max-width: 992px) {
+            .card-container {
+                grid-template-columns: 100%;
+                width: 80vw;
+            }
+
+            .card-img {
+                height: 330px;
+            }
+
+            .banner {
+                padding: 3rem 0;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .card-container {
+                width: 100vw;
+            }
+
+            .banner h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--{{>navbar}}-->
+    <div class="h-icon">
+    <a href="/" target="_blank"><i class="fa-solid fa-house" style="color: var(--color-golden);"></i></a>
+  </div>
+    <section class="banner">
+        <h2>BOOK YOUR TABLE NOW</h2>
+        <div class="card-container">
+            <div class="card-img">
+            </div>
+
+            <div class="card-content">
+                <h3>Reservation</h3>
+                <form method="POST" action="/book">
+                
+                    <div class="form-row">
+                        <input type="date" name="date" id="dt">
+
+                        <select name="slot">
+                            <option value="hour-select">Select Hour</option>
+                            <option value="10">08: 00-10: 00</option>
+                            <option value="10">10: 00-12: 00</option>
+                            <option value="10">12: 00-14: 00</option>
+                            <option value="10">14: 00-16: 00</option>
+                            <option value="10">16: 00-16: 00</option>
+                            <option value="10">18: 00-18: 00</option>
+                            <option value="10">20: 00-22: 00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Full Name">
+                        {{!-- <input type="text" placeholder="Phone Number"> --}}
+                    </div>
+
+                    <div class="form-row">
+                        <input type="number" name="seats" placeholder="How Many Persons?" min="1">
+                        <input type="submit" value="BOOK TABLE" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+</html>
